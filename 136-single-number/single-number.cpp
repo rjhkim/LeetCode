@@ -1,18 +1,14 @@
 class Solution {
 public:
     int singleNumber(vector<int>& nums) {
-       map<int,int> m;
+        //bit manipulation?
+        int res = 0;
 
-       for (int i = 0; i < nums.size(); i++) {
-           m[nums[i]]++;
-       } 
+        for (int i = 0; i < nums.size(); i++) {
+            res = res ^ nums[i];
+        }
 
-       for (auto j : m) {
-           if (j.second == 1) {
-               return j.first;
-           }
-       }
+        return res;
 
-       return 0;
     }
 };
