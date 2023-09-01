@@ -77,7 +77,7 @@ private:
         string key = "";
 
         for (int i = 0; i < count.size(); i++) {
-            key.append(to_string(count[i]) + '#');
+            key.append(to_string(count[i]) + '9');
         }
 
         return key;
