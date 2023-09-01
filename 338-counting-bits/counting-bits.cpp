@@ -3,17 +3,14 @@ public:
     vector<int> countBits(int n) {
         //for loop
         vector<int> ans;
+        ans.resize(n + 1, 0);
+        int offset = 1;
 
-        for (int i = 0; i < n + 1; i++) {
-            int temp = i;
-            int count = 0;
-            while (temp != 0) {
-                if (temp & 1 == 1) {
-                    count++;
-                }
-                temp = temp >> 1;
+        for (int i = 1; i < n + 1; i++) {
+            if ((offset * 2) == i) {
+                offset = i;
             }
-            ans.push_back(count);
+            ans[i] = 1 + ans[i - offset];
         }
 
         return ans;
